@@ -7,4 +7,12 @@
     padding-left: 313px;
     padding-bottom: 12px;
   }
+
+  @media screen and (max-width: 390px) {
+    > img {
+      padding-top: 5px;
+      padding-left: 20px;
+      padding-bottom: 5px;
+    }
+  }
 }
