@@ -1,0 +1,13 @@
+.home-container {
+  flex: 1;
+  background: url(../../assets/images/background.png) no-repeat;
+  background-size: cover;
+  .title {
+    margin-top: 90px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 53px;
+    color: #fff;
+  }
+}
