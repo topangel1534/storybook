@@ -10,5 +10,12 @@
     font-size: 40px;
     line-height: 53px;
     color: #fff;
+    @media screen and (max-width: 390px) {
+      margin-top: 48px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 40px;
+    }
   }
 }
