@@ -8,7 +8,7 @@ const Generator = () => {
     <div className="generator-container">
       <div className="generator-content">
         <div className="keyword-form">
-          <input placeholder="Describe image here..." />
+          <input placeholder="Describe image here" />
           <FontAwesomeIcon icon={faXmark} />
           <FontAwesomeIcon icon={faShuffle} />
           <div className="generate-button">
