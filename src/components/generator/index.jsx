@@ -3,6 +3,9 @@ import { faWandMagicSparkles, faShuffle, faXmark } from '@fortawesome/free-solid
 
 import './index.scss';
 
+const beforeGenerate = <div className="before-generate">AI Generated Image will appear here</div>;
+
+const afterGenerate = () => {};
 const Generator = () => {
   return (
     <div className="generator-container">
@@ -26,6 +29,7 @@ const Generator = () => {
           <div class="deco">Deco</div>
           <div class="acrylic">Acrylic</div>
         </div>
+        <div className="images-container">{beforeGenerate}</div>
       </div>
       <div className="tool-box"></div>
     </div>
