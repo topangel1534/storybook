@@ -16,6 +16,16 @@ const Generator = () => {
             <p>GENERATE</p>
           </div>
         </div>
+        <div className="styles-container">
+          <div className="styles-container-title">ADD STYLE:</div>
+          <div class="fantasy">Fantasy</div>
+          <div class="anime active">Anime</div>
+          <div class="pencil">Pencil</div>
+          <div class="nouveau">Nouveau</div>
+          <div class="watercolor">Watercolor</div>
+          <div class="deco">Deco</div>
+          <div class="acrylic">Acrylic</div>
+        </div>
       </div>
       <div className="tool-box"></div>
     </div>
