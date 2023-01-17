@@ -12,7 +12,10 @@
     height: 33px;
     text-align: right;
   }
+}
 
+.generator-header {
+  display: flex;
   .main-image {
     height: 306px;
     width: 352px;
@@ -48,5 +51,26 @@
         background-color: #fff;
       }
     }
+  }
+}
+
+.tag-container {
+  display: flex;
+  margin-top: 21px;
+  margin-right: 22px;
+  height: 40px;
+  .tag-button {
+    width: 56px;
+    text-align: center;
+    color: #fff;
+    background: #5c5b5b;
+    line-height: 40px;
+  }
+
+  input {
+    flex: 1;
+    background: #faf9f9;
+    border: 1px solid #bab2b2;
+    text-indent: 18px;
   }
 }
