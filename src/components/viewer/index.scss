@@ -35,6 +35,7 @@
       width: 276px;
       height: 218px;
       margin-bottom: 14px;
+      margin-right: 0;
     }
   }
 }
@@ -44,6 +45,9 @@
   height: 306px;
   width: 254px;
   flex-wrap: wrap;
+  @media screen and (max-width: 390px) {
+    display: none;
+  }
   > .thumbnail {
     height: 84px;
     width: 105px;

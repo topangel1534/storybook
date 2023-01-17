@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons';
-
+import Thumbnails from 'components/thumbnails';
 import './index.scss';
 
 const Viewer = () => {
@@ -28,6 +28,7 @@ const Viewer = () => {
               <FontAwesomeIcon icon={faLock} />
             </div>
           </div>
+          <Thumbnails />
         </div>
         <div className="tag-container">
           <input type="text" placeholder="#tags" />
