@@ -1,6 +1,9 @@
 .generated-images-viewer {
   display: flex;
-  padding-left: 44px;
+  padding: 0 44px;
+  @media screen and (max-width: 390px) {
+    padding: 0 27px;
+  }
   margin-bottom: 80px;
   .time-counter {
     font-weight: 500;
@@ -11,17 +14,28 @@
     width: 167px;
     height: 33px;
     text-align: right;
+    @media screen and (max-width: 390px) {
+      display: none;
+    }
   }
 }
 
 .generator-header {
   display: flex;
+  @media screen and (max-width: 390px) {
+    flex-direction: column;
+  }
   .main-image {
     height: 306px;
     width: 352px;
     border: 1px solid #000000;
     border-radius: 5px;
     margin-right: 36px;
+    @media screen and (max-width: 390px) {
+      width: 276px;
+      height: 218px;
+      margin-bottom: 14px;
+    }
   }
 }
 
@@ -59,6 +73,9 @@
   margin-top: 21px;
   margin-right: 22px;
   height: 40px;
+  @media screen and (max-width: 390px) {
+    display: none;
+  }
   .tag-button {
     width: 56px;
     text-align: center;

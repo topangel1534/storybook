@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWandMagicSparkles, faShuffle, faXmark, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faWandMagicSparkles, faShuffle, faXmark, faLock, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Viewer from 'components/viewer';
 import Toolbox from 'components/toolbox';
 import './index.scss';
@@ -27,22 +27,25 @@ const Generator = () => {
         </div>
         <div className="styles-container">
           <div className="styles-container-title">ADD STYLE:</div>
-          <div className="fantasy">Fantasy</div>
-          <div className="anime active">Anime</div>
-          <div className="pencil">Pencil</div>
-          <div className="nouveau">Nouveau</div>
-          <div className="watercolor locked">
-            Watercolor
-            <FontAwesomeIcon icon={faLock} />
+          <div className="style-items">
+            <div className="fantasy">Fantasy</div>
+            <div className="anime active">Anime</div>
+            <div className="pencil">Pencil</div>
+            <div className="nouveau">Nouveau</div>
+            <div className="watercolor locked">
+              Watercolor
+              <FontAwesomeIcon icon={faLock} />
+            </div>
+            <div className="deco locked">
+              Deco
+              <FontAwesomeIcon icon={faLock} />
+            </div>
+            <div className="acrylic locked">
+              Acrylic
+              <FontAwesomeIcon icon={faLock} />
+            </div>
           </div>
-          <div className="deco locked">
-            Deco
-            <FontAwesomeIcon icon={faLock} />
-          </div>
-          <div className="acrylic locked">
-            Acrylic
-            <FontAwesomeIcon icon={faLock} />
-          </div>
+          <FontAwesomeIcon icon={faAngleDown} className="angleDown" />
         </div>
       </div>
       {/* <div className="images-container">{beforeGenerate}</div> */}
