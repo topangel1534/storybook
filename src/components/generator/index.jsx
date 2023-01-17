@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWandMagicSparkles, faShuffle, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faWandMagicSparkles, faShuffle, faXmark, faLock } from '@fortawesome/free-solid-svg-icons';
 
 import './index.scss';
 
@@ -25,9 +25,18 @@ const Generator = () => {
           <div class="anime active">Anime</div>
           <div class="pencil">Pencil</div>
           <div class="nouveau">Nouveau</div>
-          <div class="watercolor">Watercolor</div>
-          <div class="deco">Deco</div>
-          <div class="acrylic">Acrylic</div>
+          <div class="watercolor locked">
+            Watercolor
+            <FontAwesomeIcon icon={faLock} />
+          </div>
+          <div class="deco locked">
+            Deco
+            <FontAwesomeIcon icon={faLock} />
+          </div>
+          <div class="acrylic locked">
+            Acrylic
+            <FontAwesomeIcon icon={faLock} />
+          </div>
         </div>
         <div className="images-container">{beforeGenerate}</div>
       </div>

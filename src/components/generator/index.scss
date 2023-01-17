@@ -136,6 +136,20 @@
       background: #5c5b5b;
       color: #ffffff;
     }
+
+    &.locked {
+      position: relative;
+      background-color: #d9d9d9;
+      border: none;
+      svg {
+        position: absolute;
+        right: 6px;
+        top: 5px;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #fff;
+      }
+    }
   }
 }
 
@@ -152,6 +166,7 @@
     color: #bab2b2;
   }
 }
+
 .tool-box {
   background: #ffffff;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.15);
