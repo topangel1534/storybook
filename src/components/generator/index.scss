@@ -158,6 +158,8 @@
     display: flex;
     justify-self: flex-start;
     align-items: center;
+    height: 40px;
+    overflow: hidden;
     @media screen and (max-width: 390px) {
       width: 100%;
       flex-wrap: wrap;
@@ -178,6 +180,7 @@
     @media screen and (max-width: 390px) {
       width: 80px;
       margin-right: 8px;
+      margin-bottom: 8px;
     }
 
     &:last-child {
