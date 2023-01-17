@@ -1,0 +1,20 @@
+.toolbox {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: auto;
+  text-align: center;
+  .save-button {
+    display: inline-block;
+    background: #000000;
+    border-radius: 100px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 40px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #ffffff;
+    svg {
+      margin-right: 20px;
+    }
+  }
+}

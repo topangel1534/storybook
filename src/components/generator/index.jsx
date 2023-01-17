@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWandMagicSparkles, faShuffle, faXmark, faLock } from '@fortawesome/free-solid-svg-icons';
 import Viewer from 'components/viewer';
-
+import Toolbox from 'components/toolbox';
 import './index.scss';
 
 const beforeGenerate = <div className="before-generate">AI Generated Image will appear here</div>;
@@ -41,7 +41,9 @@ const Generator = () => {
       </div>
       {/* <div className="images-container">{beforeGenerate}</div> */}
       <Viewer />
-      <div className="tool-box"></div>
+      <div className="tool-box">
+        <Toolbox />
+      </div>
     </div>
   );
 };
