@@ -6,7 +6,7 @@ import './index.scss';
 const Toolbox = () => {
   return (
     <div className="toolbox">
-      <div class="save-button">
+      <div className="save-button">
         <FontAwesomeIcon icon={faSave} />
         SAVE
       </div>

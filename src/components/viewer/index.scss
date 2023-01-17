@@ -65,6 +65,9 @@
     color: #fff;
     background: #5c5b5b;
     line-height: 40px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   input {
@@ -72,5 +75,16 @@
     background: #faf9f9;
     border: 1px solid #bab2b2;
     text-indent: 18px;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      color: #5c5b5b;
+    }
   }
 }

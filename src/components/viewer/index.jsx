@@ -31,7 +31,7 @@ const Viewer = () => {
         </div>
         <div className="tag-container">
           <input type="text" placeholder="#tags" />
-          <div class="tag-button">
+          <div className="tag-button">
             <FontAwesomeIcon icon={faWandMagicSparkles} />
           </div>
         </div>

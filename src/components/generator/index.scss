@@ -59,6 +59,16 @@
       outline: none;
     }
   }
+  .utils-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .faShuffle {
+      margin-right: 24px;
+      margin-left: 40px;
+    }
+  }
 
   .generate-button {
     display: flex;
@@ -66,8 +76,7 @@
     height: 100%;
     background: #2dc24e;
     border-radius: 100px;
-    padding-left: 29px;
-    padding-right: 16px;
+    padding: 0 30px;
     @media screen and (max-width: 390px) {
       height: 30px;
       width: 30px;
