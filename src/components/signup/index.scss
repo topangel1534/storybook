@@ -1,0 +1,70 @@
+.sign-up {
+  margin-top: 90px;
+  width: 630px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 80px 102px 80px;
+  background: #ffffff;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+  @media screen and (max-width: 390px) {
+    margin-top: 83px;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: auto;
+    padding: 50px 36px 67px 36px;
+  }
+
+  .title {
+    font-weight: 700;
+    text-align: center;
+    font-size: 50px;
+    line-height: 73px;
+    margin-bottom: 56px;
+    @media screen and (max-width: 390px) {
+      margin-bottom: 60px;
+    }
+  }
+
+  .email-sign-btn {
+    background: #2dc24e;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    margin-bottom: 54px;
+  }
+
+  .divider-caption {
+    display: flex;
+    justify-items: space-between;
+    @media screen and (max-width: 390px) {
+      justify-content: center;
+    }
+    align-items: center;
+    margin-bottom: 50px;
+    > div {
+      flex: 1;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 35px;
+      text-align: center;
+      &:first-child,
+      &:last-child {
+        border-top: 1px solid #000000;
+      }
+    }
+  }
+
+  .google-sign-btn {
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 100px;
+    padding-top: 4px;
+    @media screen and (max-width: 390px) {
+      padding-top: 4px;
+    }
+  }
+}
