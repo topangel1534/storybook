@@ -8,16 +8,22 @@ import './index.scss';
 const beforeGenerate = <div className="before-generate">AI Generated Image will appear here</div>;
 const Generator = () => {
   const [keyword, setKeyword] = useState('');
+
   const handleKeywords = (e) => {
     setKeyword(e.target.value);
   };
+
+  const removeKeywords = () => {
+    setKeyword('');
+  };
+
   return (
     <div className="generator-container">
       <div className="generator-content">
         <div className="keyword-form">
           <input placeholder="Describe image here" onChange={handleKeywords} value={keyword} />
           <div className="utils-box">
-            {keyword.length ? <FontAwesomeIcon icon={faXmark} className="xMark" /> : ''}
+            {keyword.length ? <FontAwesomeIcon icon={faXmark} className="xMark" onClick={removeKeywords} /> : ''}
             <FontAwesomeIcon icon={faShuffle} className="faShuffle" />
             <div className="generate-button">
               <FontAwesomeIcon icon={faWandMagicSparkles} />

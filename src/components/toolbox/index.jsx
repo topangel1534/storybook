@@ -1,14 +1,18 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faDownload } from '@fortawesome/free-solid-svg-icons';
 
 import './index.scss';
 
 const Toolbox = () => {
   return (
     <div className="toolbox">
-      <div className="save-button">
+      <div className="tool-btn save-button">
         <FontAwesomeIcon icon={faSave} />
-        SAVE
+        <p>SAVE</p>
+      </div>
+      <div className="tool-btn download-all">
+        <FontAwesomeIcon icon={faDownload} />
+        <p>DOWNLOAD ALL</p>
       </div>
     </div>
   );
