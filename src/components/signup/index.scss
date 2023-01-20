@@ -37,6 +37,9 @@
       color: #fff;
       padding: 10px 0;
       margin-bottom: 54px;
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .divider-caption {
@@ -44,6 +47,11 @@
       justify-items: space-between;
       @media screen and (max-width: 390px) {
         justify-content: center;
+        > div {
+          &:nth-child(2) {
+            flex: 2;
+          }
+        }
       }
       align-items: center;
       margin-bottom: 50px;
@@ -68,6 +76,49 @@
       @media screen and (max-width: 390px) {
         padding-top: 4px;
       }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.email-sign-form {
+  > input {
+    width: 100%;
+    margin-bottom: 35px;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    padding: 8px;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 35px;
+    color: #5c5b5b;
+  }
+
+  .password-field {
+    margin-bottom: 70px;
+  }
+
+  .sign-up-button {
+    background: #2dc24e;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    &:hover {
+      cursor: pointer;
     }
   }
 }
