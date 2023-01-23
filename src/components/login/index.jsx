@@ -10,7 +10,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="login dark">
       <div className="login-container">
         <div className="login-title">Storybook</div>
         <input placeholder="Email" name="email" onChange={(e) => setEmail(e.target.value)} />
