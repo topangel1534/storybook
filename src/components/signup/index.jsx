@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import GoogleIcon from '../../assets/images/gmail.png';
+import DarkGoogleIcon from '../../assets/images/dark-gmail.png';
+
 import './index.scss';
+
+const dark = true;
 
 const SignUp = () => {
   const [emailFlag, setFlagEmail] = useState(false);
@@ -18,7 +22,7 @@ const SignUp = () => {
           <div></div>
         </div>
         <div className="google-sign-btn">
-          <img src={GoogleIcon} alt="Google icon" />
+          <img src={dark ? DarkGoogleIcon : GoogleIcon} alt="Google icon" />
         </div>
       </>
     );
