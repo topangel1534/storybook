@@ -5,7 +5,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="main-page">
+    <div className="main-page dark">
       <div className="main-container">
         <div className="main-title">
           <p>Welcome to</p>
