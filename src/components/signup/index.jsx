@@ -4,7 +4,7 @@ import DarkGoogleIcon from '../../assets/images/dark-gmail.png';
 
 import './index.scss';
 
-const dark = true;
+const dark = false;
 
 const SignUp = () => {
   const [emailFlag, setFlagEmail] = useState(false);
