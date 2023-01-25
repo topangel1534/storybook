@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import './index.scss';
 
+const { REACT_APP_LOGIN_URL, REACT_APP_SIGNUP_URL } = process.env;
+
 const Main = () => {
   const navigate = useNavigate();
 
@@ -11,7 +13,7 @@ const Main = () => {
           <p>Welcome to</p>
           <p>Storybook</p>
         </div>
-        <div className="login" onClick={() => navigate('/login')}>
+        <div className="login" onClick={() => navigate(`${REACT_APP_LOGIN_URL}`)}>
           LOG IN
         </div>
         <div className="divider">
@@ -19,7 +21,7 @@ const Main = () => {
           <p>No account yet?</p>
           <div></div>
         </div>
-        <div className="sign-up" onClick={() => navigate('/signup')}>
+        <div className="sign-up" onClick={() => navigate(`${REACT_APP_SIGNUP_URL}`)}>
           SIGN UP
         </div>
       </div>

@@ -40,6 +40,11 @@ const Generator = () => {
     }
   };
 
+  const handleToggle = ({ target }) => {
+    console.log(target);
+    // setCheckedState((s) => ({ ...s, [target.name]: !s[target.name] }));
+  };
+
   return (
     <div className="generator-container">
       <div className="generator-content">
@@ -57,7 +62,12 @@ const Generator = () => {
         <div className="styles-container">
           <div className="styles-container-title">ADD STYLE:</div>
           <div className="style-items">
-            <div className="fantasy">Fantasy</div>
+            {Object.keys(checkedState).map((key) => (
+              <div className="optionCheckmarks" key={key} onClick={handleToggle} name={key}>
+                {key}
+              </div>
+            ))}
+            {/* <div className="fantasy">Fantasy</div>
             <div className="anime active">Anime</div>
             <div className="pencil">Pencil</div>
             <div className="nouveau">Nouveau</div>
@@ -72,7 +82,7 @@ const Generator = () => {
             <div className="acrylic locked">
               Acrylic
               <FontAwesomeIcon icon={faLock} />
-            </div>
+            </div> */}
           </div>
           <FontAwesomeIcon icon={faAngleDown} className="angleDown" />
         </div>
