@@ -3,29 +3,52 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWandMagicSparkles, faShuffle, faXmark, faLock, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Viewer from 'components/viewer';
 import Toolbox from 'components/toolbox';
+import Api from 'utils/api';
+
 import './index.scss';
 
-const beforeGenerate = <div className="before-generate">AI Generated Image will appear here</div>;
-const Generator = () => {
-  const [keyword, setKeyword] = useState('');
+// const beforeGenerate = <div className="before-generate">AI Generated Image will appear here</div>;
 
-  const handleKeywords = (e) => {
-    setKeyword(e.target.value);
+const Generator = () => {
+  const [description, setDescription] = useState('');
+  const [checkedState, setCheckedState] = useState({
+    fantasy: false,
+    anime: false,
+    pencil: false,
+    nouveau: false,
+    watercolor: false,
+    deco: false,
+    acrylic: false,
+  });
+
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
   };
 
-  const removeKeywords = () => {
-    setKeyword('');
+  const removeDescription = () => {
+    setDescription('');
+  };
+
+  const generateImage = async () => {
+    try {
+      // const response = await Api.get(
+      //   `/images/${description}/${checkedState.fantasy}/${checkedState.anime}/${checkedState.pencil}/${checkedState.nouveau}/${checkedState.watercolor}/${checkedState.deco}/${checkedState.acrylic}`
+      // );
+      // console.log(response);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   return (
     <div className="generator-container">
       <div className="generator-content">
         <div className="keyword-form">
-          <input placeholder="Describe image here" onChange={handleKeywords} value={keyword} />
+          <input placeholder="Describe image here" onChange={handleDescription} value={description} />
           <div className="utils-box">
-            {keyword.length ? <FontAwesomeIcon icon={faXmark} className="xMark" onClick={removeKeywords} /> : ''}
+            {description.length ? <FontAwesomeIcon icon={faXmark} className="xMark" onClick={removeDescription} /> : ''}
             <FontAwesomeIcon icon={faShuffle} className="faShuffle" />
-            <div className="generate-button">
+            <div className="generate-button" onClick={generateImage}>
               <FontAwesomeIcon icon={faWandMagicSparkles} />
               <p>GENERATE</p>
             </div>
