@@ -58,6 +58,7 @@ export const sdAPI = (payload) => {
 
   const config = {
     method: 'post',
+    mode: 'cors',
     url: 'https://stablediffusionapi.com/api/v3/text2img?key=G8sSXXiTmWbY7LFqZ9MqrzUIDE1ZQqL3MeVykjARGbzwKmgv7zb35NAcylY1',
     headers: {
       'Content-Type': 'application/json',

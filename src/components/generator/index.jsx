@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWandMagicSparkles, faShuffle, faXmark, faLock, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Viewer from 'components/viewer';
 import Toolbox from 'components/toolbox';
-import Api from 'utils/sdApi';
+import axios from 'axios';
 
 import './index.scss';
 
@@ -32,12 +32,13 @@ const Generator = () => {
 
   const generateImage = async () => {
     try {
-      console.log(description, checkedState);
+      const { fantasy, anime, pencil, nouveau, watercolor, deco, acrylic } = checkedState;
+
       if (description.length) {
-        // const response = await Api.get(
-        //   `/images/${description}/${checkedState.fantasy}/${checkedState.anime}/${checkedState.pencil}/${checkedState.nouveau}/${checkedState.watercolor}/${checkedState.deco}/${checkedState.acrylic}`
-        // );
-        // console.log(response);
+        const response = await axios.get(
+          `/${description}/${fantasy}/${anime}/${pencil}/${nouveau}/${watercolor}/${deco}/${acrylic}`
+        );
+        console.log(response);
       } else {
         alert('Please type text description');
         return;
@@ -48,7 +49,6 @@ const Generator = () => {
   };
 
   const handleToggle = (key) => {
-    console.log(key);
     setCheckedState((s) => ({ ...s, [key]: !s[key] }));
   };
 
