@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import cx from 'classnames';
+import { useCookies } from 'react-cookie';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWandMagicSparkles, faShuffle, faXmark, faLock, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Viewer from 'components/viewer';
@@ -30,9 +32,15 @@ const Generator = () => {
   const [thumb2Url, setThumb2Url] = useState(null);
   const [thumb3Url, setThumb3Url] = useState(null);
   const [data, setData] = useState({});
-  const authenticated = false;
+  const [cookies, setCookie] = useCookies(['member']);
 
-  useEffect(() => {}, [images.length]);
+  const authenticated = false;
+  const userWith = 'test-dev_zurix@dispostable.com|33ac124ba83f26d883a355f76cf4a656';
+  const userWo = 'test-dev_luqiwaq@dispostable.com|580673b1e28ae7f9282781e62a21804e';
+
+  useEffect(() => {
+    setCookie('aiwp_logged_in', userWith, { path: '/' });
+  }, []);
 
   const handleDescription = (e) => {
     setDescription(e.target.value);
