@@ -19,24 +19,24 @@ const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authentica
           <div className="thumbnails-container">
             <img className="thumbnail" src={status === 'success' ? thumb1 : Thumbnail} alt="Thumb1"></img>
             <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={!authenticated ? Thumbnail : thumb2} alt="" />
-              <FontAwesomeIcon icon={faLock} />
+              <img src={status === 'success' && authenticated ? thumb2 : Thumbnail} alt="" />
+              {!authenticated && <FontAwesomeIcon icon={faLock} />}
             </div>
             <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={!authenticated ? Thumbnail : thumb3} alt="" />
-              <FontAwesomeIcon icon={faLock} />
+              <img src={status === 'success' && authenticated ? thumb3 : Thumbnail} alt="" />
+              {!authenticated && <FontAwesomeIcon icon={faLock} />}
             </div>
             <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={!authenticated ? Thumbnail : ''} alt="" />
-              <FontAwesomeIcon icon={faLock} />
+              <img src={status === 'success' && authenticated ? thumb2 : Thumbnail} alt="" />
+              {!authenticated && <FontAwesomeIcon icon={faLock} />}
             </div>
             <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={!authenticated ? Thumbnail : ''} alt="" />
-              <FontAwesomeIcon icon={faLock} />
+              <img src={status === 'success' && authenticated ? thumb3 : Thumbnail} alt="" />
+              {!authenticated && <FontAwesomeIcon icon={faLock} />}
             </div>
             <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={!authenticated ? Thumbnail : ''} alt="" />
-              <FontAwesomeIcon icon={faLock} />
+              <img src={status === 'success' && authenticated ? thumb1 : Thumbnail} alt="" />
+              {!authenticated && <FontAwesomeIcon icon={faLock} />}
             </div>
           </div>
           <Thumbnails />
