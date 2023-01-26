@@ -55,7 +55,10 @@
     border-radius: 5px;
     margin-right: 22px;
     margin-bottom: 25px;
-
+    img {
+      height: 100%;
+      width: 100%;
+    }
     &.locked {
       position: relative;
       opacity: 0.5;

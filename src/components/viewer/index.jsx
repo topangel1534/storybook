@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
+import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons';
 import Thumbnails from 'components/thumbnails';
 import Thumbnail from 'assets/images/thumbnail.png';
 import './index.scss';
 
-const Viewer = ({ fullSize, thumb1, status, duration }) => {
+const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authenticated }) => {
   const [mainUrl, setMainUrl] = useState('');
   return (
     <div className="generated-images-viewer">
@@ -17,19 +18,24 @@ const Viewer = ({ fullSize, thumb1, status, duration }) => {
           <img className="main-image" src={status === 'success' ? fullSize : Thumbnail} alt="Full Size"></img>
           <div className="thumbnails-container">
             <img className="thumbnail" src={status === 'success' ? thumb1 : Thumbnail} alt="Thumb1"></img>
-            <div className="thumbnail locked">
+            <div className={cx('thumbnail', { locked: !authenticated })}>
+              <img src={!authenticated ? Thumbnail : thumb2} alt="" />
               <FontAwesomeIcon icon={faLock} />
             </div>
-            <div className="thumbnail locked">
+            <div className={cx('thumbnail', { locked: !authenticated })}>
+              <img src={!authenticated ? Thumbnail : thumb3} alt="" />
               <FontAwesomeIcon icon={faLock} />
             </div>
-            <div className="thumbnail locked">
+            <div className={cx('thumbnail', { locked: !authenticated })}>
+              <img src={!authenticated ? Thumbnail : ''} alt="" />
               <FontAwesomeIcon icon={faLock} />
             </div>
-            <div className="thumbnail locked">
+            <div className={cx('thumbnail', { locked: !authenticated })}>
+              <img src={!authenticated ? Thumbnail : ''} alt="" />
               <FontAwesomeIcon icon={faLock} />
             </div>
-            <div className="thumbnail locked">
+            <div className={cx('thumbnail', { locked: !authenticated })}>
+              <img src={!authenticated ? Thumbnail : ''} alt="" />
               <FontAwesomeIcon icon={faLock} />
             </div>
           </div>

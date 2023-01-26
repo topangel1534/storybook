@@ -23,12 +23,14 @@ const Generator = () => {
     deco: false,
     acrylic: false,
   });
+  const lockedStyles = ['watercolor', 'deco', 'acrylic'];
   const [images, setImages] = useState([]);
   const [imgUrl, setImgUrl] = useState(null);
   const [thumb1Url, setThumb1Url] = useState(null);
   const [thumb2Url, setThumb2Url] = useState(null);
   const [thumb3Url, setThumb3Url] = useState(null);
   const [data, setData] = useState({});
+  const authenticated = false;
 
   useEffect(() => {}, [images.length]);
 
@@ -85,7 +87,11 @@ const Generator = () => {
   };
 
   const handleToggle = (key) => {
-    setCheckedState((s) => ({ ...s, [key]: !s[key] }));
+    if (!authenticated && lockedStyles.includes(key)) {
+      return;
+    } else {
+      setCheckedState((s) => ({ ...s, [key]: !s[key] }));
+    }
   };
 
   return (
@@ -106,8 +112,13 @@ const Generator = () => {
           <div className="styles-container-title">ADD STYLE:</div>
           <div className="style-items">
             {Object.keys(checkedState).map((key) => (
-              <div className={cx(key, { active: checkedState[key] })} key={key} onClick={() => handleToggle(key)}>
+              <div
+                className={cx(key, { active: checkedState[key] }, { locked: lockedStyles.includes(key) && !authenticated })}
+                key={key}
+                onClick={() => handleToggle(key)}
+              >
                 {key}
+                {!authenticated && lockedStyles.includes(key) && <FontAwesomeIcon icon={faLock} />}
               </div>
             ))}
           </div>
@@ -122,6 +133,7 @@ const Generator = () => {
         thumb3={thumb3Url}
         status={responseStatus}
         duration={data.generationTime}
+        authenticated={authenticated}
       />
       <div className="tool-box">
         <Toolbox />
