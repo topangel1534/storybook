@@ -249,6 +249,7 @@
     font-size: 12px;
     line-height: 16px;
     color: #5c5b5b;
+    text-transform: capitalize;
     padding: 8px 0;
 
     @media screen and (max-width: 390px) {
@@ -278,6 +279,10 @@
         border-radius: 10px;
         background-color: #fff;
       }
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }

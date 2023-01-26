@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWandMagicSparkles, faShuffle, faXmark, faLock, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Viewer from 'components/viewer';
@@ -31,18 +32,24 @@ const Generator = () => {
 
   const generateImage = async () => {
     try {
-      // const response = await Api.get(
-      //   `/images/${description}/${checkedState.fantasy}/${checkedState.anime}/${checkedState.pencil}/${checkedState.nouveau}/${checkedState.watercolor}/${checkedState.deco}/${checkedState.acrylic}`
-      // );
-      // console.log(response);
+      console.log(description, checkedState);
+      if (description.length) {
+        // const response = await Api.get(
+        //   `/images/${description}/${checkedState.fantasy}/${checkedState.anime}/${checkedState.pencil}/${checkedState.nouveau}/${checkedState.watercolor}/${checkedState.deco}/${checkedState.acrylic}`
+        // );
+        // console.log(response);
+      } else {
+        alert('Please type text description');
+        return;
+      }
     } catch (error) {
       console.log(error.response);
     }
   };
 
-  const handleToggle = ({ target }) => {
-    console.log(target);
-    // setCheckedState((s) => ({ ...s, [target.name]: !s[target.name] }));
+  const handleToggle = (key) => {
+    console.log(key);
+    setCheckedState((s) => ({ ...s, [key]: !s[key] }));
   };
 
   return (
@@ -62,22 +69,11 @@ const Generator = () => {
         <div className="styles-container">
           <div className="styles-container-title">ADD STYLE:</div>
           <div className="style-items">
-            <div className="fantasy">Fantasy</div>
-            <div className="anime active">Anime</div>
-            <div className="pencil">Pencil</div>
-            <div className="nouveau">Nouveau</div>
-            <div className="watercolor locked">
-              Watercolor
-              <FontAwesomeIcon icon={faLock} />
-            </div>
-            <div className="deco locked">
-              Deco
-              <FontAwesomeIcon icon={faLock} />
-            </div>
-            <div className="acrylic locked">
-              Acrylic
-              <FontAwesomeIcon icon={faLock} />
-            </div>
+            {Object.keys(checkedState).map((key) => (
+              <div className={cx(key, { active: checkedState[key] })} key={key} onClick={() => handleToggle(key)}>
+                {key}
+              </div>
+            ))}
           </div>
           <FontAwesomeIcon icon={faAngleDown} className="angleDown" />
         </div>
