@@ -1,17 +1,22 @@
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faWandMagicSparkles } from '@fortawesome/free-solid-svg-icons';
 import Thumbnails from 'components/thumbnails';
+import Thumbnail from 'assets/images/thumbnail.png';
 import './index.scss';
 
-const Viewer = () => {
+const Viewer = ({ fullSize, thumb1, status, duration }) => {
+  const [mainUrl, setMainUrl] = useState('');
   return (
     <div className="generated-images-viewer">
-      <div className="time-counter">Images generated using Stability AI in 4.10 seconds</div>
+      <div className="time-counter">
+        Images generated using Stability AI in {duration ? duration.toFixed(2) : '0'} seconds
+      </div>
       <div className="image-generate-container">
         <div className="generator-header">
-          <div className="main-image"></div>
+          <img className="main-image" src={status === 'success' ? fullSize : Thumbnail} alt="Full Size"></img>
           <div className="thumbnails-container">
-            <div className="thumbnail"></div>
+            <img className="thumbnail" src={status === 'success' ? thumb1 : Thumbnail} alt="Thumb1"></img>
             <div className="thumbnail locked">
               <FontAwesomeIcon icon={faLock} />
             </div>
