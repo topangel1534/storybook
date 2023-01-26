@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWandMagicSparkles, faShuffle, faXmark, faLock, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Viewer from 'components/viewer';
 import Toolbox from 'components/toolbox';
-import Api from 'utils/api';
+import Api from 'utils/sdApi';
 
 import './index.scss';
 
@@ -62,12 +62,7 @@ const Generator = () => {
         <div className="styles-container">
           <div className="styles-container-title">ADD STYLE:</div>
           <div className="style-items">
-            {Object.keys(checkedState).map((key) => (
-              <div className="optionCheckmarks" key={key} onClick={handleToggle} name={key}>
-                {key}
-              </div>
-            ))}
-            {/* <div className="fantasy">Fantasy</div>
+            <div className="fantasy">Fantasy</div>
             <div className="anime active">Anime</div>
             <div className="pencil">Pencil</div>
             <div className="nouveau">Nouveau</div>
@@ -82,7 +77,7 @@ const Generator = () => {
             <div className="acrylic locked">
               Acrylic
               <FontAwesomeIcon icon={faLock} />
-            </div> */}
+            </div>
           </div>
           <FontAwesomeIcon icon={faAngleDown} className="angleDown" />
         </div>
