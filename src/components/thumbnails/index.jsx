@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Carousel from 'react-elastic-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
@@ -39,6 +39,10 @@ const Item = styled.div`
 
 const Thumbnails = ({ thumb1, thumb2, thumb3, status, authenticated }) => {
   const [items, setItems] = useState([thumb1, thumb2, thumb3, thumb1, thumb2, thumb3]);
+  useEffect(() => {
+    console.log(thumb1);
+  });
+
   return (
     <div className="thumbnails">
       <Carousel breakPoints={breakPoints}>

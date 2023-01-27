@@ -34,6 +34,7 @@ const Generator = () => {
   const [cookies, setCookie] = useCookies(['member']);
 
   const authenticated = false;
+  const subscription = true;
   const userWith = 'test-dev_zurix@dispostable.com|33ac124ba83f26d883a355f76cf4a656';
   const userWo = 'test-dev_luqiwaq@dispostable.com|580673b1e28ae7f9282781e62a21804e';
 
@@ -144,9 +145,10 @@ const Generator = () => {
         status={responseStatus}
         duration={data.generationTime}
         authenticated={authenticated}
+        subscription={subscription}
       />
       <div className="tool-box">
-        <Toolbox />
+        <Toolbox authenticated={authenticated} subscription={subscription} />
       </div>
     </div>
   );

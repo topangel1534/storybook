@@ -6,7 +6,7 @@ import Thumbnails from 'components/thumbnails';
 import Thumbnail from 'assets/images/thumbnail.png';
 import './index.scss';
 
-const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authenticated }) => {
+const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authenticated, subscription }) => {
   const [mainUrl, setMainUrl] = useState('');
   return (
     <div className="generated-images-viewer">
@@ -43,12 +43,14 @@ const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authentica
           </div>
           <Thumbnails thumb1={thumb1} thumb2={thumb2} thumb3={thumb3} status={status} authenticated={authenticated} />
         </div>
-        <div className="tag-container">
-          <input type="text" placeholder="#tags" />
-          <div className="tag-button">
-            <FontAwesomeIcon icon={faWandMagicSparkles} />
+        {(authenticated || subscription) && (
+          <div className="tag-container">
+            <input type="text" placeholder="#tags" />
+            <div className="tag-button">
+              <FontAwesomeIcon icon={faWandMagicSparkles} />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
