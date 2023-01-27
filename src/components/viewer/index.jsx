@@ -11,7 +11,9 @@ const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authentica
   return (
     <div className="generated-images-viewer">
       <div className="time-counter">
-        Images generated using Stability AI in {duration ? duration.toFixed(2) : '0'} seconds
+        Images generated using
+        <br />
+        Stability AI in {duration ? duration.toFixed(2) : '0'} seconds
       </div>
       <div className="image-generate-container">
         <div className="generator-header">

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import cx from 'classnames';
 import { useCookies } from 'react-cookie';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWandMagicSparkles, faShuffle, faXmark, faLock, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import Viewer from 'components/viewer';
@@ -31,6 +30,7 @@ const Generator = () => {
   const [thumb1Url, setThumb1Url] = useState(null);
   const [thumb2Url, setThumb2Url] = useState(null);
   const [thumb3Url, setThumb3Url] = useState(null);
+  const [flag, setFlag] = useState(false);
   const [data, setData] = useState({});
   const [cookies, setCookie] = useCookies(['member']);
 
@@ -102,6 +102,10 @@ const Generator = () => {
     }
   };
 
+  const expandStyles = () => {
+    setFlag(!flag);
+  };
+
   return (
     <div className="generator-container">
       <div className="generator-content">
@@ -118,7 +122,7 @@ const Generator = () => {
         </div>
         <div className="styles-container">
           <div className="styles-container-title">ADD STYLE:</div>
-          <div className="style-items">
+          <div className={cx('style-items', { open: flag })}>
             {Object.keys(checkedState).map((key) => (
               <div
                 className={cx(key, { active: checkedState[key] }, { locked: lockedStyles.includes(key) && !authenticated })}
@@ -130,7 +134,7 @@ const Generator = () => {
               </div>
             ))}
           </div>
-          <FontAwesomeIcon icon={faAngleDown} className="angleDown" />
+          <FontAwesomeIcon icon={faAngleDown} className="angleDown" onClick={expandStyles} />
         </div>
       </div>
       {/* {images.length ? <Viewer images={images} /> : <div className="images-container">{beforeGenerate}</div>} */}

@@ -236,6 +236,9 @@
     @media screen and (max-width: 390px) {
       width: 100%;
       flex-wrap: wrap;
+      &.open {
+        height: auto;
+      }
     }
   }
 
