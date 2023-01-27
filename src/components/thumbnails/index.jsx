@@ -37,19 +37,18 @@ const Item = styled.div`
   }
 `;
 
-const Thumbnails = ({ thumb1, thumb2, thumb3, status, authenticated, subscription }) => {
+const Thumbnails = ({ thumb1, thumb2, thumb3, status, subscription }) => {
   const [items, setItems] = useState([thumb1, thumb2, thumb3, thumb1, thumb2, thumb3]);
   useEffect(() => {
-    console.log(thumb1);
-  });
-
+    setItems([thumb1, thumb2, thumb3, thumb1, thumb2, thumb3]);
+  }, [status, thumb1]);
   return (
     <div className="thumbnails">
       <Carousel breakPoints={breakPoints}>
         {items.map((item, index) => (
           <Item key={index} className="thumbnail-item">
-            <img src={status === 'success' && (authenticated || index === 0) ? item : Thumbnail} alt={`${index}`} />
-            {index !== 0 && !authenticated && <FontAwesomeIcon icon={faLock} />}
+            <img src={status === 'success' && (index === 0 || subscription) ? item : Thumbnail} alt={`${index}`} />
+            {index !== 0 && !subscription && <FontAwesomeIcon icon={faLock} />}
           </Item>
         ))}
       </Carousel>

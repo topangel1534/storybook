@@ -20,25 +20,25 @@ const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authentica
           <img className="main-image" src={status === 'success' ? fullSize : Thumbnail} alt="Full Size"></img>
           <div className="thumbnails-container">
             <img className="thumbnail" src={status === 'success' ? thumb1 : Thumbnail} alt="Thumb1"></img>
-            <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={status === 'success' && authenticated ? thumb2 : Thumbnail} alt="" />
-              {!authenticated && <FontAwesomeIcon icon={faLock} />}
+            <div className={cx('thumbnail', { locked: !subscription })}>
+              <img src={status === 'success' && subscription ? thumb2 : Thumbnail} alt="" />
+              {!subscription && <FontAwesomeIcon icon={faLock} />}
             </div>
-            <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={status === 'success' && authenticated ? thumb3 : Thumbnail} alt="" />
-              {!authenticated && <FontAwesomeIcon icon={faLock} />}
+            <div className={cx('thumbnail', { locked: !subscription })}>
+              <img src={status === 'success' && subscription ? thumb3 : Thumbnail} alt="" />
+              {!subscription && <FontAwesomeIcon icon={faLock} />}
             </div>
-            <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={status === 'success' && authenticated ? thumb2 : Thumbnail} alt="" />
-              {!authenticated && <FontAwesomeIcon icon={faLock} />}
+            <div className={cx('thumbnail', { locked: !subscription })}>
+              <img src={status === 'success' && subscription ? thumb2 : Thumbnail} alt="" />
+              {!subscription && <FontAwesomeIcon icon={faLock} />}
             </div>
-            <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={status === 'success' && authenticated ? thumb3 : Thumbnail} alt="" />
-              {!authenticated && <FontAwesomeIcon icon={faLock} />}
+            <div className={cx('thumbnail', { locked: !subscription })}>
+              <img src={status === 'success' && subscription ? thumb3 : Thumbnail} alt="" />
+              {!subscription && <FontAwesomeIcon icon={faLock} />}
             </div>
-            <div className={cx('thumbnail', { locked: !authenticated })}>
-              <img src={status === 'success' && authenticated ? thumb1 : Thumbnail} alt="" />
-              {!authenticated && <FontAwesomeIcon icon={faLock} />}
+            <div className={cx('thumbnail', { locked: !subscription })}>
+              <img src={status === 'success' && subscription ? thumb1 : Thumbnail} alt="" />
+              {!subscription && <FontAwesomeIcon icon={faLock} />}
             </div>
           </div>
           <Thumbnails
