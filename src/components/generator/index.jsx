@@ -25,7 +25,6 @@ const Generator = () => {
     acrylic: false,
   });
   const lockedStyles = ['watercolor', 'deco', 'acrylic'];
-  const [images, setImages] = useState([]);
   const [imgUrl, setImgUrl] = useState(null);
   const [thumb1Url, setThumb1Url] = useState(null);
   const [thumb2Url, setThumb2Url] = useState(null);
@@ -126,7 +125,6 @@ const Generator = () => {
             {Object.keys(checkedState).map((key) => (
               <div
                 className={cx(key, { active: checkedState[key] }, { locked: lockedStyles.includes(key) && !authenticated })}
-                key={key}
                 onClick={() => handleToggle(key)}
               >
                 {key}

@@ -41,7 +41,7 @@ const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authentica
               {!authenticated && <FontAwesomeIcon icon={faLock} />}
             </div>
           </div>
-          <Thumbnails />
+          <Thumbnails thumb1={thumb1} thumb2={thumb2} thumb3={thumb3} status={status} authenticated={authenticated} />
         </div>
         <div className="tag-container">
           <input type="text" placeholder="#tags" />

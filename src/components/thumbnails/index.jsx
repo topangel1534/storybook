@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Carousel from 'react-elastic-carousel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-
+import Thumbnail from 'assets/images/thumbnail.png';
 import './index.scss';
 
 const breakPoints = [
@@ -28,15 +30,23 @@ const Item = styled.div`
       background-color: #fff;
     }
   }
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
-const Thumbnails = () => {
-  const [items, setItems] = useState([1, 2, 3, 4, 5, 6]);
+const Thumbnails = ({ thumb1, thumb2, thumb3, status, authenticated }) => {
+  const [items, setItems] = useState([thumb1, thumb2, thumb3, thumb1, thumb2, thumb3]);
   return (
     <div className="thumbnails">
       <Carousel breakPoints={breakPoints}>
-        {items.map((item) => (
-          <Item key={item}>{item}</Item>
+        {items.map((item, index) => (
+          <Item key={index} className="thumbnail-item">
+            <img src={status === 'success' && (authenticated || index === 0) ? item : Thumbnail} alt={`${index}`} />
+            {index !== 0 && !authenticated && <FontAwesomeIcon icon={faLock} />}
+          </Item>
         ))}
       </Carousel>
     </div>
