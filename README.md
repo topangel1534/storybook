@@ -3,7 +3,9 @@
 ## How to run this project
 
 Open your console in this project route and run:
-`npm start`
+
+Run frontend: `npm start`
+Run backend: `npm run server`
 
 Then open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
