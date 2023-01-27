@@ -34,8 +34,8 @@ const Generator = () => {
   const [data, setData] = useState({});
   const [cookies, setCookie] = useCookies(['member']);
 
-  const authenticated = true;
-  const subscription = false;
+  const authenticated = false;
+  const subscription = true;
   const userWith = 'test-dev_zurix@dispostable.com|33ac124ba83f26d883a355f76cf4a656';
   const userWo = 'test-dev_luqiwaq@dispostable.com|580673b1e28ae7f9282781e62a21804e';
 
@@ -96,10 +96,10 @@ const Generator = () => {
   };
 
   const handleToggle = (key) => {
-    if (!authenticated && lockedStyles.includes(key)) {
-      return;
-    } else {
+    if (subscription || !lockedStyles.includes(key)) {
       setCheckedState((s) => ({ ...s, [key]: !s[key] }));
+    } else {
+      return;
     }
   };
 
@@ -126,11 +126,11 @@ const Generator = () => {
           <div className={cx('style-items', { open: flag })}>
             {Object.keys(checkedState).map((key) => (
               <div
-                className={cx(key, { active: checkedState[key] }, { locked: lockedStyles.includes(key) && !authenticated })}
+                className={cx(key, { active: checkedState[key] }, { locked: lockedStyles.includes(key) && !subscription })}
                 onClick={() => handleToggle(key)}
               >
                 {key}
-                {!authenticated && lockedStyles.includes(key) && <FontAwesomeIcon icon={faLock} />}
+                {!subscription && lockedStyles.includes(key) && <FontAwesomeIcon icon={faLock} />}
               </div>
             ))}
           </div>
