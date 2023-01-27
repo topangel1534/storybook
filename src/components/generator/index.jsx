@@ -30,11 +30,12 @@ const Generator = () => {
   const [thumb2Url, setThumb2Url] = useState(null);
   const [thumb3Url, setThumb3Url] = useState(null);
   const [flag, setFlag] = useState(false);
+  const [generation, setGeneration] = useState(false);
   const [data, setData] = useState({});
   const [cookies, setCookie] = useCookies(['member']);
 
-  const authenticated = false;
-  const subscription = true;
+  const authenticated = true;
+  const subscription = false;
   const userWith = 'test-dev_zurix@dispostable.com|33ac124ba83f26d883a355f76cf4a656';
   const userWo = 'test-dev_luqiwaq@dispostable.com|580673b1e28ae7f9282781e62a21804e';
 
@@ -74,11 +75,11 @@ const Generator = () => {
       const { fantasy, anime, pencil, nouveau, watercolor, deco, acrylic } = checkedState;
 
       if (description.length) {
+        setGeneration(true);
         const response = await axios.get(
           `/${description}/${fantasy}/${anime}/${pencil}/${nouveau}/${watercolor}/${deco}/${acrylic}`
         );
         const { data } = response;
-        // setImages(data);
         setResponseStatus(data.status);
         await loadImage(data.output);
         setData(data);
@@ -136,17 +137,20 @@ const Generator = () => {
           <FontAwesomeIcon icon={faAngleDown} className="angleDown" onClick={expandStyles} />
         </div>
       </div>
-      {/* {images.length ? <Viewer images={images} /> : <div className="images-container">{beforeGenerate}</div>} */}
-      <Viewer
-        fullSize={imgUrl}
-        thumb1={thumb1Url}
-        thumb2={thumb2Url}
-        thumb3={thumb3Url}
-        status={responseStatus}
-        duration={data.generationTime}
-        authenticated={authenticated}
-        subscription={subscription}
-      />
+      {generation ? (
+        <Viewer
+          fullSize={imgUrl}
+          thumb1={thumb1Url}
+          thumb2={thumb2Url}
+          thumb3={thumb3Url}
+          status={responseStatus}
+          duration={data.generationTime}
+          authenticated={authenticated}
+          subscription={subscription}
+        />
+      ) : (
+        <div className="images-container">{beforeGenerate}</div>
+      )}
       <div className="tool-box">
         <Toolbox authenticated={authenticated} subscription={subscription} />
       </div>

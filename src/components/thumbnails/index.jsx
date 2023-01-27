@@ -37,7 +37,7 @@ const Item = styled.div`
   }
 `;
 
-const Thumbnails = ({ thumb1, thumb2, thumb3, status, authenticated }) => {
+const Thumbnails = ({ thumb1, thumb2, thumb3, status, authenticated, subscription }) => {
   const [items, setItems] = useState([thumb1, thumb2, thumb3, thumb1, thumb2, thumb3]);
   useEffect(() => {
     console.log(thumb1);

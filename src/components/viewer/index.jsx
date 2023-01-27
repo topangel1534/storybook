@@ -41,7 +41,14 @@ const Viewer = ({ fullSize, thumb1, thumb2, thumb3, status, duration, authentica
               {!authenticated && <FontAwesomeIcon icon={faLock} />}
             </div>
           </div>
-          <Thumbnails thumb1={thumb1} thumb2={thumb2} thumb3={thumb3} status={status} authenticated={authenticated} />
+          <Thumbnails
+            thumb1={thumb1}
+            thumb2={thumb2}
+            thumb3={thumb3}
+            status={status}
+            authenticated={authenticated}
+            subscription={subscription}
+          />
         </div>
         {(authenticated || subscription) && (
           <div className="tag-container">
