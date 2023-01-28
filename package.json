@@ -55,5 +55,5 @@
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.20"
   },
-  "proxy": "http://localhost:5000/api"
+  "proxy": "http://localhost:5000"
 }

@@ -43,7 +43,7 @@ const Generator = () => {
     async function authenticate() {
       const {
         data: { authentication },
-      } = await axios.post('/authenticate', { aiwp_logged_in: user });
+      } = await axios.post('api/authenticate', { aiwp_logged_in: user });
       const {
         data: [subscription],
       } = authentication;
@@ -89,13 +89,12 @@ const Generator = () => {
       if (description.length) {
         setGeneration(true);
         const response = await axios.get(
-          `/${description}/${fantasy}/${anime}/${pencil}/${nouveau}/${watercolor}/${deco}/${acrylic}`
+          `api/${description}/${fantasy}/${anime}/${pencil}/${nouveau}/${watercolor}/${deco}/${acrylic}`
         );
         const { data } = response;
         setResponseStatus(data.status);
         await loadImage(data.output);
         setData(data);
-        console.log(data);
         setLoading(false);
       } else {
         alert('Please type text description');

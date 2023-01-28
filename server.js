@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const axios = require('axios');
 const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
 
 dotenv.config();
@@ -71,6 +72,12 @@ app.post('/api/authenticate', async (req, res) => {
     console.log(error.message);
     res.status(500).json({ error });
   }
+});
+
+app.use(express.static(path.join(__dirname, '/build')));
+
+app.get('/*', (req, res) => {
+  return res.sendFile(path.join(__dirname, '/build', 'index.html'));
 });
 
 app.listen(process.env.PORT || 5000, () => {
