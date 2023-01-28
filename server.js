@@ -1,7 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const dotenv = require('dotenv');
 const axios = require('axios');
+const bodyParser = require('body-parser');
 const app = express();
+
+dotenv.config();
+
+app.use(express.json());
+
+// parse urlencoded request body
+app.use(express.urlencoded({ extended: true }));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
 
 app.use(
   cors({
@@ -40,6 +53,23 @@ app.get('/api/:description/:isFantasy/:isAnime/:isPencil/:isNouveau/:isWatercolo
     console.error(error);
     res.status(500).json({ error });
     res.end();
+  }
+});
+
+app.post('/api/authenticate', async (req, res) => {
+  try {
+    const { aiwp_logged_in } = req.body;
+    const authUrl = process.env.REACT_APP_AUTH_URL;
+    const { data } = await axios({
+      method: 'post',
+      url: authUrl,
+      data: { aiwp_logged_in },
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    res.status(200).json({ authentication: data });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error });
   }
 });
 

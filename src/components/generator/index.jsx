@@ -32,16 +32,28 @@ const Generator = () => {
   const [flag, setFlag] = useState(false);
   const [generation, setGeneration] = useState(false);
   const [data, setData] = useState({});
-  const [cookies, setCookie] = useCookies(['member']);
+  const [authenticated, setAuthenticated] = useState(false);
+  const [subscription, setSubscription] = useState(false);
 
-  const authenticated = false;
-  const subscription = true;
-  const userWith = 'test-dev_zurix@dispostable.com|33ac124ba83f26d883a355f76cf4a656';
-  const userWo = 'test-dev_luqiwaq@dispostable.com|580673b1e28ae7f9282781e62a21804e';
+  const [cookies, setCookie] = useCookies(['member']);
+  const user = process.env.REACT_APP_USER;
 
   useEffect(() => {
-    setCookie('aiwp_logged_in', userWith, { path: '/' });
-  }, []);
+    setCookie('aiwp_logged_in', user, { path: '/' });
+    async function authenticate() {
+      const {
+        data: { authentication },
+      } = await axios.post('/authenticate', { aiwp_logged_in: user });
+      const {
+        data: [subscription],
+      } = authentication;
+
+      if (subscription.subscription === 'pro_thirty_dollars') {
+        setSubscription(true);
+      }
+    }
+    authenticate();
+  }, [cookies]);
 
   const handleDescription = (e) => {
     setDescription(e.target.value);
@@ -128,6 +140,7 @@ const Generator = () => {
               <div
                 className={cx(key, { active: checkedState[key] }, { locked: lockedStyles.includes(key) && !subscription })}
                 onClick={() => handleToggle(key)}
+                key={key}
               >
                 {key}
                 {!subscription && lockedStyles.includes(key) && <FontAwesomeIcon icon={faLock} />}
