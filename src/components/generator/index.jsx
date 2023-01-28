@@ -35,11 +35,12 @@ const Generator = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [subscription, setSubscription] = useState(false);
 
-  const [cookies, setCookie] = useCookies(['member']);
-  const user = process.env.REACT_APP_USER;
+  const [cookies, setCookie] = useCookies(['aiwp_logged_in']);
+
+  setCookie('aiwp_logged_in', process.env.REACT_APP_USER, { path: '/' });
 
   useEffect(() => {
-    setCookie('aiwp_logged_in', user, { path: '/' });
+    const user = cookies['aiwp_logged_in'];
     async function authenticate() {
       const {
         data: { authentication },
