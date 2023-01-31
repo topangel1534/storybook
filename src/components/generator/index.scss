@@ -265,6 +265,10 @@
       margin-bottom: 8px;
     }
 
+    @media screen and (max-width: 375px) {
+      width: 74px;
+    }
+
     &:last-child {
       margin-right: 0;
     }
