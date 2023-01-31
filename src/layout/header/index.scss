@@ -17,6 +17,10 @@
       padding-left: 20px;
       padding-bottom: 5px;
     }
+
+    @media screen and (max-width: 1919px) and (min-width: 390px) {
+      padding-left: calc(20px + (310 / 19.2) * 1vw);
+    }
   }
 
   &.dark {
